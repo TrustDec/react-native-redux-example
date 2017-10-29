@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {View,Text} from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from './actions'
+import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../../actions/actions'
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
 import Footer from './Footer'
@@ -13,20 +13,9 @@ class App extends Component {
     const { dispatch, visibleTodos, visibilityFilter } = this.props
     return (
       <View style={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:'#f6f6f6'}}>
-        <AddTodo
-          onAddClick={text =>
-            dispatch(addTodo(text))
-          } />
-        <TodoList
-          todos={visibleTodos}
-          onTodoClick={index =>
-            dispatch(completeTodo(index))
-          } />
-        <Footer
-          filter={visibilityFilter}
-          onFilterChange={nextFilter =>
-            dispatch(setVisibilityFilter(nextFilter))
-          } />
+        <AddTodo onAddClick={text => dispatch(addTodo(text))} />
+        <TodoList todos={visibleTodos} onTodoClick={index => dispatch(completeTodo(index))} />
+        <Footer filter={visibilityFilter} onFilterChange={nextFilter =>dispatch(setVisibilityFilter(nextFilter))} />
       </View>
     )
   }

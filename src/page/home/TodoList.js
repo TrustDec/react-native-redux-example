@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import {View,Text} from 'react-native';
 import PropTypes from 'prop-types';
-import Todo from './Todo'
+import TodoListComponent from '../../component/TodoListComponent'
 
 export default class TodoList extends Component {
   render() {
     return (
       <View>
         {this.props.todos.map((todo, index) =>
-          <Todo {...todo}
+          <TodoListComponent {...todo}
                 key={index}
                 onPress={() => this.props.onTodoClick(index)} />
         )}

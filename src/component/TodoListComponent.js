@@ -9,7 +9,6 @@ export default class Todo extends Component {
         onPress={this.props.onPress}
         style={{
             textDecorationLine: this.props.completed ? 'line-through' : 'none',
-          //cursor: this.props.completed ? 'default' : 'pointer'
         }}>
         {this.props.text}
       </Text>
@@ -18,7 +17,7 @@ export default class Todo extends Component {
 }
 
 Todo.propTypes = {
-    onPress: PropTypes.func.isRequired,
+  onPress: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequired
 }
